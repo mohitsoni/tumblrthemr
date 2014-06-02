@@ -8,7 +8,7 @@ fi
 
 # get a build number using number of total commits
 # not the best way, but this will have to do
-B_NUMBER=`git log | grep ^commit | wc -l | perl -ne '$_=~s/[^0-9]//g;print $_;'`
+B_NUMBER=`git rev-list HEAD --count`
 # put it in a conf file so we can show it that way in the ui dialog
 echo "build_version = 'build $B_NUMBER'" > src/conf.py
 
